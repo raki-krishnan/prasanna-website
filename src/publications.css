@@ -1,0 +1,61 @@
+.page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .page-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 10px;
+  }
+  
+  .page-container p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .publication-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 15px;
+    width: 100%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .publication-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .publication-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
+  .publication-title:hover {
+    text-decoration: underline;
+  }
+  
+  .publication-authors,
+  .publication-date {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  

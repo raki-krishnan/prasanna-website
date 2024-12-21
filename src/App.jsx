@@ -47,7 +47,7 @@ function Home() {
 
             {/* Contact Section */}
             <section id="contact" className="contact">
-                <h2>Contact Me</h2>
+                <h2>Contact</h2>
                 <ul>
                     <li>Email: <a href="mailto:prasanna.satpute@gmail.com">prasanna.satpute@gmail.com</a></li>
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/cellbiologist/">linkedin.com/in/cellbiologist</a></li>
