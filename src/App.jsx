@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Mission from './mission';
 import Publications from './publications';
 import ResearchProjects from './research_projects';
@@ -65,16 +66,15 @@ function App() {
                 {/* Navigation Bar */}
                 <header className="navbar">
                     <div className="logo">
-                        <Link to="/">Home</Link>
+                        <HashLink smooth to="/#">Home</HashLink> {/* Updated Home link */}
                     </div>
                     <nav>
                         <ul>
-                            <li><Link to="/">About</Link></li>
                             <li><Link to="/mission">Mission</Link></li>
                             <li><Link to="/publications">Publications</Link></li>
                             <li><Link to="/research_projects">Research Projects</Link></li>
                             <li><Link to="/team">Meet the Team</Link></li>
-                            <li><Link to="/">Contact</Link></li>
+                            <li><HashLink smooth to="/#contact">Contact</HashLink></li>
                         </ul>
                     </nav>
                 </header>
