@@ -27,6 +27,13 @@ function Home() {
                 </p>
             </section>
 
+            {/* Headline picture */}
+            <section className="headline-image">
+                <img src="/logo512.png" alt="Lab" />
+            </section>
+        
+        
+
         {/* 2x2 Grid Section */}
         <section className="grid-section">
             <h2>Explore</h2>

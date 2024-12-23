@@ -98,6 +98,12 @@
   color: #023e8a; 
 }
 
+
+/* Headline Image Section */
+.headline-image{
+  text-align: center;
+}
+
 /* Contact Section */
 .contact ul {
   list-style: none;
