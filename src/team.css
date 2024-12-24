@@ -32,13 +32,44 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, height 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
 
 .team-member:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Expanded State */
+.team-member.expanded {
+    grid-column: span 4;
+    height: 400px; 
+    padding: 40px;
+    background-color: #f0f8ff;
+    transform: scale(1.05);
+    overflow-y: auto; 
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f0f8ff;
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+.team-member.expanded::-webkit-scrollbar {
+    width: 8px;
+}
+
+.team-member.expanded::-webkit-scrollbar-track {
+    background: #f0f8ff;
+}
+
+.team-member.expanded::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+    border: 2px solid #f0f8ff;
+}
+
 
 /* Team Member Image */
 .team-image {
