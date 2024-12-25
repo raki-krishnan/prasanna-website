@@ -16,7 +16,7 @@ function Team() {
     const prasanna = new Person(
         'Prasanna Krishnan',
         'Supreme Leader',
-        'I am the lab head and I do cool stuff.',
+        'I am the lab head and I do cool stuff. I enjoy researching new ideas and leading a team of exceptional individuals to achieve groundbreaking discoveries.',
         '/psk-pfp.jpeg',
         'prasanna.krishnan@gmail.com',
         0
@@ -24,7 +24,7 @@ function Team() {
     const mukti = new Person(
         'Mukti',
         'Graduate Student',
-        'I want fish.',
+        'I want fish. I am currently working on advanced fish genetics and aquaculture techniques to improve sustainability in aquatic environments.',
         'logo192.png',
         'mukti@gmail.com',
         1
@@ -32,7 +32,7 @@ function Team() {
     const uma = new Person(
         'Uma',
         'Undergraduate Student',
-        'I am a student and I do cool stuff.',
+        'I am a student and I do cool stuff. My current interests include machine learning, robotics, and data analysis for environmental applications.',
         'logo192.png',
         'uma@gmail.com',
         2
@@ -40,7 +40,7 @@ function Team() {
     const meera = new Person(
         'Meera',
         'High School Student',
-        'Hahahahahaha',
+        'Hahahahahaha. I am passionate about STEM and enjoy working on creative projects that combine technology and art.',
         'logo192.png',
         'meera@gmail.com',
         3
@@ -70,6 +70,10 @@ function Team() {
         }
     };
 
+    const truncateBio = (bio, maxLength) => {
+        return bio.length > maxLength ? bio.slice(0, maxLength) + '...' : bio;
+    };
+
     return (
         <div className="page-container">
             <h1>Meet the Team</h1>
@@ -88,8 +92,8 @@ function Team() {
                         <p className="position">{member.position}</p>
                         <p className="bio">
                             {expandedMember === member.array_index
-                                ? member.bio + ' (Expanded bio can have more details here.)'
-                                : member.bio}
+                                ? member.bio
+                                : truncateBio(member.bio, 20)}
                         </p>
                         <a href={`mailto:${member.email}`} className="email-link">Email</a>
                     </div>
