@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './team.css';
 
 class Person {
-    constructor(name, position, bio, image, email, index) {
+    constructor(name, position, bio, image, email, array_index) {
         this.name = name; //string
         this.position = position; //string
         this.bio = bio; //string
         this.image = image; //string (URL)
         this.email = email; //string (email)
-        this.index = index; //integer
+        this.array_index = array_index; //integer
     }
 }
 
@@ -50,49 +50,23 @@ function Team() {
 
     const [teamMembers, setTeamMembers] = useState(originalMembers);
     const [expandedMember, setExpandedMember] = useState(null);
-    const [currentIndexfromOriginal, setCurrentIndexfromOriginal] = useState(null);
 
     const toggleExpanded = (index) => {
-        if (expandedMember === index) {
+        const clickedMember = teamMembers[index];
+
+        if (expandedMember === clickedMember.array_index) {
             // Collapse the current member and restore original order
             setExpandedMember(null);
             setTeamMembers(originalMembers);
-            console.log("Current state of teamMembers");
-            console.log(teamMembers);
         } else {
-            console.log("index clicked in teamMembers array");
-            console.log(index);
-
-            console.log("Current state of teamMembers");
-            console.log(teamMembers);
-
-            //set the unique index of the clicked member
-            setCurrentIndexfromOriginal(teamMembers[index].email);
-            console.log("Current index from original");
-            console.log(currentIndexfromOriginal);
-
-
-            // Expand the clicked member and move them to the front
-            console.log("Original members");
-            console.log(originalMembers);
-            //first we want to set things back to their original state
-            setExpandedMember(null);
-            setTeamMembers(originalMembers);
-
-
-
-
+            // Restore original order first
             const reorderedMembers = [
-                originalMembers[index],
-                ...originalMembers.slice(0, index),
-                ...originalMembers.slice(index + 1),
+                originalMembers[clickedMember.array_index],
+                ...originalMembers.filter((member) => member.array_index !== clickedMember.array_index),
             ];
 
             setTeamMembers(reorderedMembers);
-            setExpandedMember(0);
-
-            console.log("Reordered members");
-            console.log(reorderedMembers);
+            setExpandedMember(clickedMember.array_index);
         }
     };
 
@@ -104,16 +78,16 @@ function Team() {
                 {teamMembers.map((member, index) => (
                     <div
                         className={`team-member ${
-                            expandedMember === index ? 'expanded' : ''
+                            expandedMember === member.array_index ? 'expanded' : ''
                         }`}
-                        key={index}
+                        key={member.array_index}
                         onClick={() => toggleExpanded(index)}
                     >
                         <img src={member.image} alt={member.name} className="team-image" />
                         <h2>{member.name}</h2>
                         <p className="position">{member.position}</p>
                         <p className="bio">
-                            {expandedMember === index
+                            {expandedMember === member.array_index
                                 ? member.bio + ' (Expanded bio can have more details here.)'
                                 : member.bio}
                         </p>
